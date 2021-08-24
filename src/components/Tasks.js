@@ -1,9 +1,14 @@
-const tasks = []
+import Task from './Task'
+ const Tasks = ({tasks, onDelete, onToggle}) => {
 
-export const Tasks = () => {
     return (
         <>
-    {tasks.map((task) =>(<h3>{task.text}</h3>))}
+    {tasks.map((task) =>
+    (<Task key={task.id} task={task}
+    onDelete={() => onDelete(task.id)} onToggle={onToggle} />
+    ))}
         </>
     )
 }
+
+export default Tasks
